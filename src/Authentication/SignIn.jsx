@@ -4,20 +4,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import supabase from '../supabase-client';
 
 const SignIn = () => {
-    // Form data state
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
 
-    // State management for UI and form validation
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Handle input changes and clear errors on user typing
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -30,7 +27,6 @@ const SignIn = () => {
         }
     };
 
-    // Form validation logic
     const validateForm = () => {
         const newErrors = {};
 
@@ -47,7 +43,6 @@ const SignIn = () => {
         return newErrors;
     };
 
-    // Handle form submission and Supabase authentication
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage("");
@@ -72,7 +67,7 @@ const SignIn = () => {
             } else if (data?.user) {
                 setMessage("Login successful! Redirecting...");
                 setFormData({ email: '', password: '' });
-                setTimeout(() => navigate("/"), 2000); // Redirect to home or dashboard
+                setTimeout(() => navigate("/"), 2000);
             }
         } catch (err) {
             setMessage("An unexpected error occurred. Please try again.");
@@ -84,7 +79,6 @@ const SignIn = () => {
     return (
         <div className="min-h-screen bg-white flex items-center justify-center p-4">
             <div className="w-full max-w-md">
-                {/* Success/Error message display */}
                 {message && (
                     <div className={`text-center text-sm font-medium p-2 mb-5 rounded ${
                         message.toLowerCase().includes("success")
@@ -96,7 +90,6 @@ const SignIn = () => {
                 )}
 
                 <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
-                    {/* Header section with logo and welcome text */}
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                             <BookOpen className="w-8 h-8 text-white" />
@@ -105,7 +98,6 @@ const SignIn = () => {
                         <p>Your No1 blog site 💅💅💅💅 Purr</p>
                     </div>
                     <div className="space-y-6">
-                        {/* Email input field */}
                         <div>
                             <label className="block text-sm font-medium text-black mb-2">
                                 Email Address
@@ -125,7 +117,6 @@ const SignIn = () => {
                             </div>
                             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                         </div>
-                        {/* Password input field with visibility toggle */}
                         <div>
                             <label className="block text-sm font-medium text-black mb-2">
                                 Password
@@ -142,7 +133,6 @@ const SignIn = () => {
                                     }`}
                                     placeholder="Enter your password"
                                 />
-                                {/* Password visibility toggle button */}
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
@@ -154,7 +144,6 @@ const SignIn = () => {
                             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
                         </div>
 
-                        {/* Submit button with loading state */}
                         <button
                             type="button"
                             onClick={handleSubmit}
@@ -167,7 +156,6 @@ const SignIn = () => {
                             <span>{loading ? "Logging in..." : "Log In"}</span>
                         </button>
 
-                        {/* Forgot password link */}
                         <div className="text-center">
                             <Link 
                                 to="/forgotPassword" 
@@ -178,7 +166,6 @@ const SignIn = () => {
                         </div>
                     </div>
 
-                    {/* Bottom section - Link to signup page */}
                     <div className="text-center mt-8 pt-6 border-t border-gray-200">
                         <p className="text-gray-600 text-sm">
                             Don't have an account?{' '}
