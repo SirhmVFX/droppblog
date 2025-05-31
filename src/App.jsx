@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import SignUp from './Authentication/SignUp'
+import SignIn from './Authentication/SignIn'
 import ErrorBoundary from './ErrorBoundary'
 
 function App() {
@@ -21,7 +22,14 @@ function App() {
         />
 
         {/* {login} */}
-        <Route />
+        <Route
+          path='/Login'
+          element={
+            <ErrorBoundary>
+              <SignIn/>
+            </ErrorBoundary>
+          }
+          />
 
         {/* {dashboard} */}
         <Route />
