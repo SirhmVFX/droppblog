@@ -1,19 +1,30 @@
-import { BrowserRouter, Route, Routes } from 'react-router'
-import SignUp from './Authentication/SignUp'
-import SignIn from './Authentication/SignIn'
-import ErrorBoundary from './ErrorBoundary'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import SignUp from './Authentication/SignUp';
+import SignIn from './Authentication/SignIn';
+import ErrorBoundary from './ErrorBoundary';
+import HomePage from './HomePage'; 
+import HomeHeader from '../HomeHeader';
+import PostCard from './PostCard';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* {home} */}
-        <Route />
-
-        {/* {register or signup} */}
+        {/* Home */}
         <Route
-          path='/Signup'
+          path="/"
+          element={
+            <ErrorBoundary>
+              <HomePage />
+              <PostCard />
+            </ErrorBoundary>
+          }
+        />
+
+        {/* Register or Signup */}
+        <Route
+          path="/Signup"
           element={
             <ErrorBoundary>
               <SignUp />
@@ -21,23 +32,19 @@ function App() {
           }
         />
 
-        {/* {login} */}
+        {/* Login */}
         <Route
-          path='/Login'
+          path="/Login"
           element={
             <ErrorBoundary>
-              <SignIn/>
+              <SignIn />
             </ErrorBoundary>
           }
-          />
+        />
 
-        {/* {dashboard} */}
-        <Route />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
-
-
+export default App;

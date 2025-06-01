@@ -5,7 +5,7 @@ import { Bell } from 'lucide-react'
 function HomeHeader() {
   return (
     <header className="bg-white text-gray-900 shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center py-3 px-6">
+      <div className="w-full max-w-7xl mx-auto flex justify-between items-center py-3 px-6">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold font-serif tracking-tight">
           Dropp<span className="text-black">Blog</span>
