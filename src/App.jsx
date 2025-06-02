@@ -5,6 +5,7 @@ import ErrorBoundary from './ErrorBoundary';
 import HomePage from './HomePage'; 
 import HomeHeader from '../HomeHeader';
 import PostCard from './PostCard';
+import CreatePost from '../CreatePost';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             </ErrorBoundary>
           }
         />
+        <Route path="/create-post" element={<CreatePost />} />
 
         {/* Register or Signup */}
         <Route

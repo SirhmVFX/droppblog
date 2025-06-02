@@ -1,65 +1,44 @@
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-import SignUp from './Authentication/SignUp'
-import SignIn from './Authentication/SignIn'
-import ErrorBoundary from './ErrorBoundary'
-import HomePage from './HomePage'
-import Header from './Header'
-import HomeHeader from './HomeHeader'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import SignUp from './Authentication/SignUp';
+import SignIn from './Authentication/SignIn';
+import HomePage from './HomePage';
+import ErrorBoundary from './ErrorBoundary';
+import Header from './Header';
+import HomeHeader from './HomeHeader';
+// import Dashboard from './Dashboard'; // Uncomment when ready
 
-// import Dashboard from './Dashboard' // Uncomment when Dashboard exists
-function AppContent() {
-  const location = useLocation()
+// Handles conditional headers based on route
+const Layout = ({ children }) => {
+  const location = useLocation();
+  const path = location.pathname.toLowerCase();
 
-  // List of auth routes where we want the LoginHeader
-  const authRoutes = ['/Login', '/Signup']
-
-  const isAuthRoute = authRoutes.includes(location.pathname)
+  const isAuthPage = path === '/login' || path === '/signup';
+  const HeaderComponent = isAuthPage ? Header : HomeHeader;
 
   return (
     <>
-      {/* Conditionally render Header */}
-      {isAuthRoute ? (
-        <Header />
-      ) : (
-        <HomeHeader />
-      )}
-
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ErrorBoundary>
-              <HomePage />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/Signup"
-          element={
-            <ErrorBoundary>
-              <SignUp />
-            </ErrorBoundary>
-          }
-        />
-        <Route
-          path="/Login"
-          element={
-            <ErrorBoundary>
-              <SignIn />
-            </ErrorBoundary>
-          }
-        />
-      </Routes>
+      <HeaderComponent />
+      {children}
     </>
-  )
-}
+  );
+};
 
 function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <ErrorBoundary>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<SignIn />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            {/* Add a 404 fallback if needed */}
+          </Routes>
+        </Layout>
+      </ErrorBoundary>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
