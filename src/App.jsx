@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import HomeHeader from '../HomeHeader';
 import PostCard from './PostCard';
 import CreatePost from '../CreatePost';
+import UserProfile from './UserProfile'; // Import UserProfile component
 
 function App() {
   return (
@@ -40,6 +41,16 @@ function App() {
           element={
             <ErrorBoundary>
               <SignIn />
+            </ErrorBoundary>
+          }
+        />
+
+        {/* User Profile */}
+        <Route
+          path="/profile"
+          element={
+            <ErrorBoundary>
+              <UserProfile />
             </ErrorBoundary>
           }
         />
