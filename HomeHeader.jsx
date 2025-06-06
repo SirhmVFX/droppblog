@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bell, Menu, X, Plus } from 'lucide-react';
+import user from '../droppblog/src/Assets/𝓜𝓪𝓶𝓪𝓭🦍⛓️ sur TikTok.jpeg'
 
 function HomeHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,7 +13,7 @@ function HomeHeader() {
         <Link to="/" className="text-2xl font-bold font-serif tracking-tight whitespace-nowrap min-w-0">
           Dropp<span className="text-black">Blog</span>
         </Link>
-
+e
         {/* Mobile menu toggle */}
         <button
           className="md:hidden"
@@ -47,11 +48,13 @@ function HomeHeader() {
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full" />
           </button>
 
-          <img
-            src="https://via.placeholder.com/36"
+          <Link to="/profile">
+            <img
+            src={user}
             alt="Profile"
             className="w-9 h-9 rounded-full object-cover border"
           />
+          </Link>
         </div>
       </div>
 
@@ -77,11 +80,13 @@ function HomeHeader() {
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full" />
           </button>
 
-          <img
-            src="https://via.placeholder.com/36"
+          <Link to="/profile">
+            <img
+            src={user}
             alt="Profile"
             className="w-9 h-9 rounded-full object-cover border"
           />
+          </Link>
         </div>
       )}
     </header>

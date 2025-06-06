@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 
 function CreatePost() {
     const [title, setTitle] = useState('');
@@ -27,14 +28,22 @@ function CreatePost() {
             <header className="w-full border-b border-gray-200 py-4 mb-4">
                 <div className="max-w-6xl mx-auto flex justify-between items-center px-4">
                     <div className="text-2xl font-bold text-black">
-                        {/* Logo or App Name */}
-                        Droppblogq
+                        DroppBlog
                     </div>
                     <nav className="space-x-4 text-sm text-gray-600">
-                        <a href="#" className="hover:text-black transition">Home</a>
-                        <a href="#" className="hover:text-black transition">Posts</a>
-                        <a href="#" className="hover:text-black transition">About</a>
-                    </nav>
+                      <Link
+                       to="/"
+                       className="hover:text-black transition duration-200 border-b-2 border-transparent hover:border-black"
+                     >
+                       Home
+                    </Link>
+                   <Link
+                    to="/Profile"
+                    className="hover:text-black transition duration-200 border-b-2 border-transparent hover:border-black"
+                  >
+                    Profile
+                  </Link>
+                  </nav>
                 </div>
             </header>
 
