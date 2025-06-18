@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import user from './Assets/𝓜𝓪𝓶𝓪𝓭🦍⛓️ sur TikTok.jpeg';
+import user from './Assets/img.jpeg';
 import image1 from './Assets/Screenshot 2025-04-27 225511.png';
 import image2 from './Assets/Screenshot 2025-04-14 121116.png'; 
 

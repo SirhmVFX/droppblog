@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bell, Menu, X, Plus } from 'lucide-react';
-import user from '../droppblog/src/Assets/𝓜𝓪𝓶𝓪𝓭🦍⛓️ sur TikTok.jpeg'
+import user from '../droppblog/src/Assets/img.jpeg'
 
 function HomeHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
