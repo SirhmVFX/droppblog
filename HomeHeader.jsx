@@ -13,7 +13,7 @@ function HomeHeader() {
         <Link to="/" className="text-2xl font-bold font-serif tracking-tight whitespace-nowrap min-w-0">
           Dropp<span className="text-black">Blog</span>
         </Link>
-e
+
         {/* Mobile menu toggle */}
         <button
           className="md:hidden"
